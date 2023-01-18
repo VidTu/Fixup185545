@@ -1,0 +1,7 @@
+name: Fixup185545
+version: 1.0
+main: com.github.vidtu.fixup185545.Fixup185545
+api-version: 1.16
+author: VidTu
+description: 'Fixes MC-185545. (AKA Netherite random knockback bug)'
+website: 'https://github.com/VidTu/Fixup185545'
