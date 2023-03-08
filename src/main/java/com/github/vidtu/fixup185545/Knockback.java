@@ -1,6 +1,7 @@
 package com.github.vidtu.fixup185545;
 
 import org.bukkit.attribute.AttributeModifier;
+import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,6 +14,7 @@ import java.util.List;
  * @author VidTu
  */
 public class Knockback {
+    private final Vector override;
     private final double multiplier;
     private final double base;
     private final List<AttributeModifier> modifiers;
@@ -20,14 +22,25 @@ public class Knockback {
     /**
      * Creates a new instance of the knockback resistance data class.
      *
+     * @param override   Overridden knockback, <code>null</code> if override is disabled
      * @param multiplier Calculated knockback modifier
      * @param base       Previous knockback resistance base value
      * @param modifiers  Previous knockback resistance modifiers
      */
-    public Knockback(double multiplier, double base, Collection<AttributeModifier> modifiers) {
+    public Knockback(Vector override, double multiplier, double base, Collection<AttributeModifier> modifiers) {
+        this.override = override;
         this.multiplier = multiplier;
         this.base = base;
         this.modifiers = Collections.unmodifiableList(new ArrayList<>(modifiers));
+    }
+
+    /**
+     * Gets overridden knockback.
+     *
+     * @return Overridden knockback, <code>null</code> if override was disabled
+     */
+    public Vector override() {
+        return override;
     }
 
     /**
